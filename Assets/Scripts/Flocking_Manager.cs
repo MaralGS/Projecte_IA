@@ -14,6 +14,7 @@ public class Flocking_Manager : MonoBehaviour
     public float rotationSpeed = 0.0f;
     float freq = 1.0f;
     float cFreq = 0.3f;
+    public GameObject lider;
 
     // Start is called before the first frame update
     void Start()
