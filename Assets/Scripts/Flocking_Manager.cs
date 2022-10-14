@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Flocking_Manager : MonoBehaviour
 {
-    public int numFish = 25;
+    public int numFish = 1;
     Vector3 VectorRand;
     public GameObject fishPrefab;
     public GameObject[] allFish;
-    public float neighbourDistance = 5f;
+    public float neighbourDistance = 1.0f;
     public float minSpeed = 1.0f;
-    public float maxSpeed = 5.0f;
+    public float maxSpeed = 1.0f;
     public float rotationSpeed = 0.0f;
+    float freq = 1.0f;
+    float cFreq = 0.3f;
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +24,17 @@ public class Flocking_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        freq += Time.deltaTime;
+        if (freq > cFreq)
+        {
+            freq = 0.0f;
+            foreach (GameObject go in allFish)
+            {
+                go.GetComponent<Flock>().CalculateDirection();
+                Debug.Log("Si");
+            }
+        }
 
-    
     }
     void Create() 
     {

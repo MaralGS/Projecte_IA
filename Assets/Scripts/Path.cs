@@ -28,9 +28,9 @@ public class Path : MonoBehaviour
             {
                 n = 0;
             }
-            Debug.Log(n);
+            //Debug.Log(n);
             current_target.position = vector3s[n].position;
-            Debug.Log(Vector3.Distance(agent.transform.position, current_target.position));
+           // Debug.Log(Vector3.Distance(agent.transform.position, current_target.position));
 
         }
         

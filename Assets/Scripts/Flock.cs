@@ -7,11 +7,13 @@ public class Flock : MonoBehaviour
     public Flocking_Manager myManager;
     
     int num = 0;
-    float speed;
+    float speed = 0.0f;
     Vector3 direction;
     Vector3 separation = Vector3.zero;
     Vector3 align = Vector3.zero;
     Vector3 cohesion = Vector3.zero;
+    float freq = 1.0f;
+    float cFreq = 0.3f;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,16 +23,25 @@ public class Flock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+
+        transform.rotation = Quaternion.Slerp(transform.rotation,
+                                      Quaternion.LookRotation(direction),
+                                      myManager.rotationSpeed * Time.deltaTime);
+        transform.Translate(0.0f, 0.0f, Time.deltaTime * speed);
+
+
+    }
+
+    public void CalculateDirection()
+    {
         Cohesion();
         Velocity();
         Separation();
-        direction = (cohesion).normalized * speed;
-          transform.rotation = Quaternion.Slerp(transform.rotation,
-                                      Quaternion.LookRotation(direction),
-                                      myManager.rotationSpeed * Time.deltaTime);
-        transform.Translate(0.0f,0.0f, Time.deltaTime * speed);
-        //Debug.Log(transform.position);
-        Debug.Log(direction);
+        direction = (cohesion + align + separation).normalized * speed;
+
+
     }
 
     void Cohesion() 
@@ -47,6 +58,7 @@ public class Flock : MonoBehaviour
                 {
                     cohesion += go.transform.position;
                     num++;
+                    //Debug.Log(go);
                 }
             }
         }

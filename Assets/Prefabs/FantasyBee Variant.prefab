@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1046869630431942, guid: c717f817a496cf247a92b830b355a407, type: 3}
       propertyPath: m_Name
-      value: FantasyBee
+      value: FantasyBee Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4549644435828676, guid: c717f817a496cf247a92b830b355a407, type: 3}
       propertyPath: m_RootOrder
@@ -74,5 +74,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec1eff742e649447aa71316b09147c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myManager: {fileID: 0}
-  direction: {x: 0, y: 0, z: 0}
+  myManager: {fileID: 6850361152782844029, guid: 377be2589e1865149a4975fb4d6b93cf, type: 3}
