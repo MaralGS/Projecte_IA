@@ -25,15 +25,10 @@ public class Flock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
-
         transform.rotation = Quaternion.Slerp(transform.rotation,
                                       Quaternion.LookRotation(direction),
                                       myManager.rotationSpeed * Time.deltaTime);
         transform.Translate(0.0f, 0.0f, Time.deltaTime * speed);
-
-
     }
 
     public void CalculateDirection()
@@ -48,8 +43,6 @@ public class Flock : MonoBehaviour
         direction += lider;
         direction.Normalize();
         direction *= speed;
-
-
     }
 
     void Cohesion()
